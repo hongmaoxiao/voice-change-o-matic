@@ -208,7 +208,6 @@ function visualize() {
 }
 
 function voiceChange() {
-  distortion.curve = new Float32Array;
   distortion.oversample = '4x';
   biquadFilter.gainNode.value = 0;
   convolver.buffer = undefined;
