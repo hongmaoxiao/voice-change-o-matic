@@ -122,7 +122,6 @@ function visualize() {
 
   var visualSetting = visualSelect.value;
   console.log(visualSetting);
-  console.log("stream: ", stream);
 
   if (visualSetting == 'sinewave') {
     analyser.fftSize = 2048;
@@ -150,7 +149,6 @@ function visualize() {
 
       for (var i = 0; i < bufferLength; i++) {
         // console.log("dataArray[i]: ", dataArray[i]);
-        console.log("stream: ", stream);
         var v = dataArray[i] / 128.0;
         var y = v * HEIGHT / 2;
         if (i === 0) {
