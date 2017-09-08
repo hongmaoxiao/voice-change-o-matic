@@ -127,7 +127,7 @@ function visualize() {
 
   if (visualSetting == 'sinewave') {
     analyser.fftSize = 2048;
-    var bufferLength = analyser.frequencyBinCount;
+    var bufferLength = analyser.fftSize;
     console.log("bufferLength: ", bufferLength);
     var dataArray = new Uint8Array(bufferLength);
 
