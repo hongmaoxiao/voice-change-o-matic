@@ -52,17 +52,15 @@ ajaxRequest = new XMLHttpRequest();
 ajaxRequest.open('GET', 'http://mdn.github.io/voice-change-o-matic/audio/concert-crowd.ogg', true);
 ajaxRequest.respondType = 'arraybuffer';
 
-var concertHallBuffer;
-
 ajaxRequest.onload = function() {
   var audioData = ajaxRequest.response;
 
   audioCtx.decodeAudioData(audioData, function(buffer) {
+    console.log("buffer: ", buffer);
     concertHallBuffer = buffer;
+    soundSource = audioCtx.createBufferSource();
+    soundSource.buffer = concertHallBuffer;
   }, function(e) { "Error with decoding audio data" + e.err });
-
-  soundSource = audioCtx.createBufferSource();
-  soundSource.buffer = concertHallBuffer;
 
   // soundSource.connect(audioCtx.destination);
   // soundSource.loop = true;
@@ -187,7 +185,6 @@ function visualize() {
       var x = 0;
 
       for (var i = 0; i < bufferLength; i++) {
-        // console.log("stream: ", stream);
         barHeight = dataArray[i];
 
         canvasCtx.fillStyle = 'rgb(' + (barHeight+100) + ',50,50)';
