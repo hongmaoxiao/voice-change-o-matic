@@ -53,7 +53,7 @@ function makeDistortionCurve(amount) {
 var soundSource, concertHallBuffer;
 
 ajaxRequest = new XMLHttpRequest();
-ajaxRequest.open('GET', 'http://mdn.github.io/voice-change-o-matic/audio/concert-crowd.ogg', true);
+ajaxRequest.open('GET', 'https://mdn.github.io/voice-change-o-matic/audio/concert-crowd.ogg', true);
 ajaxRequest.respondType = 'arraybuffer';
 
 ajaxRequest.onload = function() {
